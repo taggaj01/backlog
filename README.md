@@ -9,7 +9,7 @@ Set your Partition key as the pk variable.
 
 Within the updateItem function you can set the value. [aws-documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/example_dynamodb_UpdateItem_section.html)
 
-WormHole into the AWS
+WormHole into AWS
 
 ```
 wormhole-mfa --duration-seconds=43200 <aws-Account-Alias> --console
