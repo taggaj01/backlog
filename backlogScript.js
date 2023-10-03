@@ -4,16 +4,13 @@ const {
   QueryCommand,
   UpdateCommand,
 } = require('@aws-sdk/lib-dynamodb');
-const rawClient = new DynamoDBClient();
-const dynamodbClient = DynamoDBDocumentClient.from(rawClient);
 
 const TableName =
   'IntMasPcmsDataSharedResources-PCMSApiDynamoDBTable-AYKAJ75H6R4Y';
 
-const pk = 'producerInterface';
-//const pk = 'registrationInterface';
+const pk = ['producerInterface', 'registrationInterface'];
 
-const queryInterfaceItems = async (pk, startKey) => {
+const queryInterfaceItems = async (pk, dynamodbClient, startKey) => {
   let ExclusiveStartKey;
   if (startKey) {
     ExclusiveStartKey = {
@@ -38,7 +35,7 @@ const queryInterfaceItems = async (pk, startKey) => {
   return dynamodbClient.send(new QueryCommand(dynamoDBParams));
 };
 
-const updatingItems = async (updateItems) => {
+const updatingItems = async (pk, updateItems, dynamodbClient) => {
   skArray = [];
 
   for (let i = 0; i < updateItems.length; i++) {
@@ -63,9 +60,14 @@ const updatingItems = async (updateItems) => {
 };
 
 const run = async () => {
-  const interfaces = await queryInterfaceItems(pk);
-  const updateItems = interfaces.Items;
-  updatingItems(updateItems);
+  for (let i = 0; i < pk.length; i++) {
+    const rawClient = new DynamoDBClient();
+    const dynamodbClient = DynamoDBDocumentClient.from(rawClient);
+
+    const interfaces = await queryInterfaceItems(pk[i], dynamodbClient);
+    const updateItems = interfaces.Items;
+    updatingItems(pk[i], updateItems, dynamodbClient);
+  }
 };
 
 run();

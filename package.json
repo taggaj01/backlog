@@ -1,54 +1,8 @@
 {
-  "name": "pcms-api",
+  "name": "backlogscript",
   "private": true,
-  "scripts": {
-    "nodemon": "nodemon server.js",
-    "test": "npm run swagger:validate && npm run test:unit && npm run test:cucumber",
-    "test:cucumber": "../component-test/test",
-    "test:unit": "jest",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "swagger:validate": "swagger-cli validate ./pcmsapi.yaml"
-  },
   "dependencies": {
-    "@aws-sdk/client-cloudwatch": "^3.183.0",
     "@aws-sdk/client-dynamodb": "^3.363.0",
-    "@aws-sdk/client-s3": "^3.352.0",
-    "@aws-sdk/client-secrets-manager": "^3.352.0",
-    "@aws-sdk/client-sns": "^3.352.0",
-    "@aws-sdk/client-sqs": "^3.352.0",
-    "@aws-sdk/client-sts": "^3.352.0",
-    "@aws-sdk/credential-providers": "^3.352.0",
-    "@aws-sdk/lib-dynamodb": "^3.352.0",
-    "cors": "^2.8.5",
-    "cron": "^1.8.2",
-    "express": "^4.17.1",
-    "express-async-errors": "^3.1.1",
-    "express-openapi-validator": "^4.13.8",
-    "express-telegraf-monitor": "github:bbc/express-telegraf-monitor.git#v1.2.3",
-    "lodash": "^4.17.20",
-    "log4js": "^6.7.0",
-    "node-fetch": "^2.6.1",
-    "on-headers": "^1.0.2",
-    "snoop-node": "github:bbc/pcs-snoop-node.git#v3.2.0",
-    "swagger-ui-express": "^4.1.5",
-    "uuid": "^9.0.0",
-    "yamljs": "^0.3.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.13.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^23.20.0",
-    "jest": "^27.2.4",
-    "jest-date-mock": "^1.0.8",
-    "jest-when": "^3.5.1",
-    "node-mocks-http": "^1.11.0",
-    "nodemon": "^2.0.22",
-    "swagger-cli": "^4.0.4"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coverageDirectory": "coverage"
+    "@aws-sdk/lib-dynamodb": "^3.352.0"
   }
 }
