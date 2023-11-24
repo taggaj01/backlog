@@ -6,7 +6,9 @@ const {
 } = require('@aws-sdk/lib-dynamodb');
 
 const TableName =
-  'IntMasPcmsDataSharedResources-PCMSApiDynamoDBTable-AYKAJ75H6R4Y';
+  // 'IntMasPcmsDataSharedResources-PCMSApiDynamoDBTable-AYKAJ75H6R4Y';
+  // 'TestMasPcmsDataSharedResources-PCMSApiDynamoDBTable-PBMFGMAWQ7CE';
+  'LiveMasPcmsDataSharedResources-PCMSApiDynamoDBTable-W8DZTYL2Y06G';
 
 const pk = ['producerInterface', 'registrationInterface'];
 
